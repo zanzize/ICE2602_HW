@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>油jump艾jump</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            background-color: #f0f0f0;
+            display: none; /* Initially hidden */
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+        #menu, #scorePanel {
+            margin-top: 50px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #scorePanel {
+            display: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h2>油jump艾jump</h2>
+        <button onclick="startGame()">开始游戏</button>
+    </div>
+
+    <div id="scorePanel">
+        <p>本次得分: <span id="currentScore">0</span></p>
+        <p>历史最高分: <span id="highScore">0</span></p>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        let score = 0;
+        let highScore = parseInt(localStorage.getItem('highScore')) || 0;
+        document.getElementById('highScore').innerText = highScore;
+        let doubleJumpAllowed = true;
+        let animationFrameId;
+        let obstacles = [];
+
+        const player = {
+            x: 50,
+            y: 450,
+            width: 50,
+            height: 50,
+            color: 'blue',
+            velocityY: 0,
+            jumpForce: 10,
+            gravity: 0.5,
+            onGround: true
+        };
+
+        const platform = {
+            x: 0,
+            y: 500,
+            width: canvas.width,
+            height: 20,
+            color: 'green'
+        };
+
+        function createObstacle() {
+            const obstacleHeight = Math.random() > 0.5 ? 20 : 50;
+            const obstacle = {
+                x: canvas.width,
+                y: platform.y - obstacleHeight,
+                width: 20,
+                height: obstacleHeight,
+                color: 'red',
+                velocityX: -3,
+                passed: false
+            };
+            obstacles.push(obstacle);
+        }
+
+        function drawPlayer() {
+            ctx.fillStyle = player.color;
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+        }
+
+        function drawPlatform() {
+            ctx.fillStyle = platform.color;
+            ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
+        }
+
+        function drawObstacles() {
+            obstacles.forEach(obstacle => {
+                ctx.fillStyle = obstacle.color;
+                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+            });
+        }
+
+        function updateObstacles() {
+            obstacles.forEach(obstacle => {
+                obstacle.x += obstacle.velocityX;
+
+                if (!obstacle.passed && obstacle.x < player.x) {
+                    score++;
+                    document.getElementById('currentScore').innerText = score;
+                    obstacle.passed = true;
+                }
+
+                if (player.x < obstacle.x + obstacle.width &&
+                    player.x + player.width > obstacle.x &&
+                    player.y < obstacle.y + obstacle.height &&
+                    player.y + player.height > obstacle.y) {
+                    endGame();
+                }
+            });
+
+            obstacles = obstacles.filter(obstacle => obstacle.x + obstacle.width > 0);
+        }
+
+        function updatePlayer() {
+            player.y += player.velocityY;
+
+            if (player.y + player.height >= platform.y) {
+                player.y = platform.y - player.height;
+                player.onGround = true;
+                doubleJumpAllowed = true;
+            } else {
+                player.onGround = false;
+                player.velocityY += player.gravity;
+            }
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+            drawPlatform();
+            drawObstacles();
+            updatePlayer();
+            updateObstacles();
+            animationFrameId = requestAnimationFrame(gameLoop);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'Space') {
+                if (player.onGround || (doubleJumpAllowed && !player.onGround)) {
+                    player.velocityY = -player.jumpForce;
+                    doubleJumpAllowed = player.onGround;
+                    player.onGround = false;
+                }
+            }
+        });
+
+        function startGame() {
+            cancelAnimationFrame(animationFrameId); // Cancel any previous game loop
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('scorePanel').style.display = 'block';
+            document.getElementById('gameCanvas').style.display = 'block';
+            score = 0;
+            document.getElementById('currentScore').innerText = score;
+            obstacles = [];
+            doubleJumpAllowed = true;
+            player.y = 450;
+            player.velocityY = 0;
+            player.onGround = true;
+            gameLoop();
+        }
+
+        function endGame() {
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem('highScore', highScore);
+            }
+            document.getElementById('highScore').innerText = highScore;
+            document.getElementById('currentScore').innerText = score;
+            document.getElementById('menu').style.display = 'block';
+            document.getElementById('scorePanel').style.display = 'none';
+            document.getElementById('gameCanvas').style.display = 'none';
+            cancelAnimationFrame(animationFrameId);
+        }
+
+        setInterval(createObstacle, 2000); // Create an obstacle every 2 seconds
+    </script>
+</body>
+</html>

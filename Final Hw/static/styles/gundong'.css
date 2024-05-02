@@ -1,0 +1,49 @@
+#hotspot2{
+    margin : 0;
+    padding: 0;
+  }
+  /*
+  #hotspot*/.image-slider {
+    display: flex;
+    /*justify-content: center;
+    align-items: center;*/
+    height:300px;
+    width: 1000px; /* 设置轮播图宽度 */
+    overflow: hidden; /* 隐藏溢出部分 */
+    object-position: center;
+  }
+  
+  #hotspot2 .slides {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    transition: transform 0.5s ease; 
+     /* 让.slide元素水平居中 */
+     white-space: nowrap;
+     
+  }
+  
+  #hotspot2 .slide {
+    
+    flex:0 0 auto;
+  }
+  
+  #hotspot2 img {
+    width: 500px;
+    height : 265px; /* 图片宽度100% */
+    object-position: center;
+    object-fit: cover;
+  }
+  
+  #hotspot2 p {
+    font-size: 18px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  
+      overflow-wrap: break-word;
+  
+  
+    text-align: center; /* 文字居中 */
+  }
+  
+  /* 可以添加更多样式来美化你的滑动器 */
+  

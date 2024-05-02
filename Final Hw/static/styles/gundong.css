@@ -1,0 +1,46 @@
+#hotspot{
+  margin : 0;
+  padding: 0;
+}
+/*
+#hotspot*/.image-slider {
+  display: flex;
+  /*justify-content: center;
+  align-items: center;*/
+  height:350px;
+  width: 1000px; /* 设置轮播图宽度 */
+  overflow: hidden; /* 隐藏溢出部分 */
+  object-position: center;
+}
+
+#hotspot .slides {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  transition: transform 0.5s ease; 
+   /* 让.slide元素水平居中 */
+   white-space: nowrap;
+   
+}
+
+#hotspot .slide {
+  
+  flex:0 0 auto;
+}
+
+#hotspot img {
+  width: 500px;
+  height : 280px; /* 图片宽度100% */
+  object-position: center;
+  object-fit: cover;
+}
+
+#hotspot p {
+  font-size: 13px;
+
+    overflow-wrap: break-word;
+
+
+  text-align: center; /* 文字居中 */
+}
+

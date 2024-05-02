@@ -1,0 +1,25 @@
+#guesss .container {
+
+    border: 3px solid white; /* 边框样式，可根据需要调整 */
+    padding: 10px; /* 内边距，可根据需要调整 */
+    display: inline-block; /* 让容器以块级元素形式显示在一行 */
+    background-color: azure;
+    width: 1000px;
+}
+
+.container p {
+    margin: 10px 0;
+}
+
+#guesss img {
+    width: 170px;
+    height: 110px;
+    margin-right: 10px;
+}
+
+#guesss p {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

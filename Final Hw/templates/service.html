@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <link rel="shortcut icon" href="static/images/favicon.ico"/>
+    <meta charset="utf-8"/>
+    <title>关于我们</title>
+    <link href="static/styles/reset.css" type="text/css" rel="stylesheet"/>
+    <link href="static/styles/style.css" type="text/css" rel="stylesheet"/>
+    <link href="static/styles/inner.css" rel="stylesheet" type="text/css"/>
+    <!--[if IE]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+    <!-- ////////////////////////////////// -->
+    <!-- //      Javascript Files        // -->
+    <!-- ////////////////////////////////// -->
+    <script type="text/javascript" src="static/js/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="static/js/hoverIntent.js"></script>
+    <script type="text/javascript" src="static/js/superfish.js"></script>
+    <script type="text/javascript" src="static/js/supersubs.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //=================================== MAIN MENU ===================================//
+            jQuery("ul.sf-menu").supersubs({
+                minWidth: 12,		// requires em unit.
+                maxWidth: 14,		// requires em unit.
+                extraWidth: 3	// extra width can ensure lines don't sometimes turn over due to slight browser differences in how they round-off values
+                // due to slight rounding differences and font-family 
+            }).superfish();  // call supersubs first, then superfish, so that subs are 
+            // not display:none when measuring. Call before initialising 
+            // containing tabs for same reason.
+
+            //=================================== TABS ===================================//
+            //jQuery tab
+            jQuery(".tab-content").hide(); //Hide all content
+            jQuery("ul.tabs li:first").addClass("active").show(); //Activate first tab
+            jQuery(".tab-content:first").show(); //Show first tab content
+            //On Click Event
+            jQuery("ul.tabs li").click(function () {
+                jQuery("ul.tabs li").removeClass("active"); //Remove any "active" class
+                jQuery(this).addClass("active"); //Add "active" class to selected tab
+                jQuery(".tab-content").hide(); //Hide all tab content
+                var activeTab = jQuery(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+                jQuery(activeTab).fadeIn(200); //Fade in the active content
+                return false;
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+<div id="bodychild">
+    <div id="outercontainer">
+
+        <!-- HEADER -->
+        <div id="outerheader">
+            <header id="top">
+                <div id="logo"><a href="index.html"><img src="static/images/logo.png" alt=""></a></div>
+                <section id="navigation">
+                    <nav>
+                        <ul id="topnav" class="sf-menu">
+                            <li><a href="/">主页</a></li>
+                            <li><a href="/about">财经新闻</a></li>
+                            <li class="current"><a href="/service">体育新闻</a></li>
+                            <li><a href="/portfolio">以图搜图</a></li>
+                            <li><a href="/game">学累了？玩一会吧！</a></li>
+                        </ul><!-- topnav -->
+                    </nav><!-- nav -->
+                    <div class="clear"></div>
+                </section>
+                <div class="clear"></div>
+            </header>
+        </div>
+        <!-- END HEADER -->
+
+
+        <!-- BEFORE CONTENT -->
+
+        <!-- END BEFORE CONTENT -->
+
+        <!-- MAIN CONTENT -->
+        <div id="outermain">
+            <section id="maincontent">
+
+                <!-- SEARCH -->
+                <div id="search-box">
+                    <input type="text" id="search-input" placeholder="Enter search term...">
+                    <button onclick="performSearch()">Search</button>
+                </div>
+
+                <label for="sort_by">排序方式:</label>
+                    <select name="sort_by" id="sort_by">
+                        <option value="relevance">相关性</option>
+                        <option value="time">时间</option>
+                        
+                    </select>
+
+                <div class="separator line">
+                    <div></div>
+                </div>
+
+                <div class="clear"></div>
+            </section>
+        </div>
+        <!-- END MAIN CONTENT -->
+
+        <link rel="stylesheet" href="static/styles/gundong'.css">
+        <div id="hotspot2">
+            <section id="maincontent">
+                <h2>猜你喜欢</h2>
+                <div class="image-slider">
+                    <div class="slides">
+                        <div class="slide">
+                            <img src="static/images/content/pf/tiyu1.jpg" ,alt="Image 1">
+                            <a href="https://sports.sina.com.cn/basketball/nba/2024-01-11/doc-inacccqi6410248.shtml">
+                                <p>3年1.524亿美元！莱昂纳德与快船达成提前续约</p>
+                            </a>
+                        </div>
+
+                        <div class="slide">
+                            <img src="static/images/content/pf/tiyu2.jpg" ,alt="Image 2">
+                            <a href="https://sports.sina.com.cn/basketball/nba/2024-01-10/doc-inaazmfa4312808.shtml">
+                                <p>浓眉41+11+6詹姆斯22+5+12 湖人险胜猛龙2连胜</p>
+                            </a>
+                        </div>
+
+                        <div class="slide">
+                            <img src="static/images/content/pf/tiyu3.jpg" ,alt="Image 3">
+                            <a href="https://sports.sina.com.cn/global/germany/2024-01-09/doc-inaawrkp5349803.shtml">
+                                <p>德国传奇球星贝肯鲍尔去世 享年78岁</p>
+                            </a>
+                        </div>
+
+                        <div class="slide">
+                            <img src="static/images/content/pf/tiyu4.jpg" ,alt="Image 4">
+                            <a href="https://sports.sina.com.cn/g/pl/2024-01-08/doc-inaauhch9394811.shtml">
+                                <p>足总杯-德布劳内复出送助攻 曼城5-0哈镇</p>
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <img src="static/images/content/pf/tiyu5.jpg" ,alt="Image 1">
+                            <a href="https://sports.sina.com.cn/china/2024-01-04/doc-inaaisic6235892.shtml">
+                                <p> 中超颁奖:武磊最佳球员 王大雷最佳门将 马宁金哨</p>
+                            </a>
+                        </div>
+                        <div class="slide">
+                            <img src="static/images/content/pf/tiyu1.jpg" ,alt="Image 1">
+                            <a href="https://sports.sina.com.cn/basketball/nba/2024-01-11/doc-inacccqi6410248.shtml">
+                                <p>3年1.524亿美元！莱昂纳德与快船达成提前续约</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="separator line">
+                    <div></div>
+                </div>
+
+                <div class="clear"></div>
+            </section>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/redian.css">
+        <div id="guess">
+            <section id="maincontent">
+                
+                
+                    
+                    <div class="container">
+                        
+                        <a href="https://fans.sports.qq.com/post.htm?id=1787764886571319470&mid=69#1_allWithElite">
+                            <p><img src="static/images/content/pf/tiyu6.jpg",alt="Image 6">勇士狂输鹈鹕36分 库里13中4仅15分末节提前放弃</p>
+                        </a>
+                    </div>
+                
+             
+                    <div class="container">
+                        
+                        <a href="https://fans.sports.qq.com/post.htm?id=1787760867442426035&mid=69#1_allWithElite">
+                            <p><img src="static/images/content/pf/tiyu7.jpg",alt="Image 7">绿军加时击败森林狼 双探花轰80分塔图姆制胜三分</p>
+                        </a>
+                    </div>
+              
+                    <div class="container">
+                        
+                        <a href="https://sports.sina.com.cn/basketball/nba/2024-01-11/doc-inacciwf6310185.shtml">
+                            <p><img src="static/images/content/pf/tiyu8.jpg",alt="Image 8">文班三双马刺大胜活塞止5连败</p>
+                        </a>
+                    </div>
+               
+                    <div class="container">
+                      
+                        <a href="https://fans.sports.qq.com/post.htm?id=1787746631877132462&mid=84#1_allWithElite">
+                            
+                            <p><img src="static/images/content/pf/tiyu9.jpg",alt="Image 9">皇马加时5-3马竞，晋级决赛，卡瓦哈尔造3球，迪亚斯破门</p>
+                        </a>
+                    </div>
+              
+                
+
+                
+                <div class="separator line"><div></div></div>
+                
+                <div class="clear"></div>
+            </section>
+           
+
+        </div>
+
+        <script>
+            function performSearch() {
+                var searchTerm = document.getElementById('search-input').value;
+                window.location.href = '/service?search=' + searchTerm;
+            }
+
+            let slideIndex = 0;
+            const slideWidth = document.querySelector('.slide').offsetWidth;
+            const totalSlides = document.querySelectorAll('.slide').length;
+
+            function showSlides() {
+                const slides = document.querySelector('.slides');
+                slideIndex++;
+
+                if (slideIndex >= totalSlides - 1) {
+                    // 通过改变 CSS 属性 transition 来实现无缝滚动
+                    slides.style.transition = 'none';
+                    slideIndex = 0;
+                    setTimeout(() => {
+                        slides.style.transition = ''; // 恢复默认过渡效果
+                    }, 1);
+                }
+
+                slides.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+            }
+
+            setInterval(showSlides, 3000); // 每隔3秒切换图片
+
+
+        </script>
+
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/styles/redian.css">
+        <div id="guess">
+            <section id="maincontent">
+                <h2>热点新闻</h2>
+                {% if result|length > 0 %}
+                    {% for item in result %}
+                        
+                            <div class="container">
+                                <a href=" {{item.url}}">
+                                    <p>{{ item.title }}</p >
+                                </a >
+                            </div>
+                        
+                    {% endfor %}
+                {% else %}
+                    <p>没有新闻</p >
+                {% endif %}
+
+                <div class="separator line">
+                    <div></div>
+                </div>
+
+                <div class="clear"></div>
+            </section>
+        </div>
+        <!-- END FOOTER SIDEBAR -->
+
+        <!-- FOOTER -->
+        <div id="outerfooter">
+            <div id="footercontainer">
+                <footer id="footer">Copyright &copy; 2014. All Rights Reserved</footer>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+
+
+    </div>
+</div>
+
+
+</body>
+
+</html>

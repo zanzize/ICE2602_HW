@@ -1,0 +1,26 @@
+#tupianfanzhuan.image-container {
+    position: relative;
+    display: inline-block;
+    margin:10px;
+  }
+  
+  #tupianfanzhuan.hidden-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.6s;
+  }
+  
+  #tupianfanzhuan .image-container:hover .hidden-text {
+    opacity: 1;
+  }
+  
+  #tupianfanzhuan.image-container:hover .image {
+    opacity: 0;
+  }
+  
+  #tupianfanzhuan.image {
+    transition: opacity 0.6s;
+  }
+  

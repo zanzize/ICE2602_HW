@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <link rel="shortcut icon" href="static/images/favicon.ico"/>
+    <meta charset="utf-8"/>
+    <title>案例</title>
+    <link href="static/styles/reset.css" type="text/css" rel="stylesheet"/>
+    <link href="static/styles/style.css" type="text/css" rel="stylesheet"/>
+    <link href="static/styles/inner.css" rel="stylesheet" type="text/css"/>
+    <link href="static/styles/prettyPhoto.css" rel="stylesheet" type="text/css" media="screen" title="prettyPhoto"/>
+
+    <!--[if IE]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+    <!-- ////////////////////////////////// -->
+    <!-- //      Javascript Files        // -->
+    <!-- ////////////////////////////////// -->
+    <script type="text/javascript" src="static/js/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="static/js/hoverIntent.js"></script>
+    <script type="text/javascript" src="static/js/superfish.js"></script>
+    <script type="text/javascript" src="static/js/supersubs.js"></script>
+    <script type="text/javascript" src="static/js/fade.js"></script>
+    <script type="text/javascript" src="static/js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //=================================== MAIN MENU ===================================//
+            jQuery("ul.sf-menu").supersubs({
+                minWidth: 12,		// requires em unit.
+                maxWidth: 14,		// requires em unit.
+                extraWidth: 3	// extra width can ensure lines don't sometimes turn over due to slight browser differences in how they round-off values
+                // due to slight rounding differences and font-family
+            }).superfish();  // call supersubs first, then superfish, so that subs are
+                             // not display:none when measuring. Call before initialising
+                             // containing tabs for same reason.
+
+            //=================================== PRETTYPHOTO ===================================//
+            jQuery('a[data-rel]').each(function () {
+                jQuery(this).attr('rel', jQuery(this).data('rel'));
+            });
+            jQuery("a[rel^='prettyPhoto']").prettyPhoto({animationSpeed: 'slow', theme: 'facebook', slideshow: 2000});
+
+        });
+    </script>
+</head>
+
+<body>
+<div id="bodychild">
+    <div id="outercontainer">
+
+        <!-- HEADER -->
+        <div id="outerheader">
+            <header id="top">
+                <div id="logo"><a href="index.html"><img src="static/images/logo.png" alt=""></a></div>
+                <section id="navigation">
+                    <nav>
+                        <ul id="topnav" class="sf-menu">
+                            <li><a href="/">主页</a></li>
+                            <li><a href="/about">财经新闻</a></li>
+                            <li><a href="/service">体育新闻</a></li>
+                            <li class="current"><a href="/portfolio">以图搜图</a></li>
+                            <li><a href="/game">学累了？玩一会吧！</a></li>
+                        </ul><!-- topnav -->
+                    </nav><!-- nav -->
+                    <div class="clear"></div>
+                </section>
+                <div class="clear"></div>
+            </header>
+        </div>
+        <!-- END HEADER -->
+
+
+        <!-- BEFORE CONTENT -->
+
+
+        <!-- MAIN CONTENT -->
+        <div id="outermain">
+            <section id="maincontent">
+
+                <!-- SEARCH -->
+                <div id="search-box">
+                    <form action="/portfolio" method="post" enctype="multipart/form-data">
+                        <!-- Image Search Upload -->
+                        <input type="file" id="image-input" name="file" accept="image/*">
+                        <button type="submit">Search by Image</button>
+                    </form>
+                </div>
+                <script>
+                    document.onload = function () {
+                    }
+                </script>
+
+                <div class="separator line">
+                    <div></div>
+                </div>
+
+                <div class="clear"></div>
+            </section>
+        </div>
+
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/styles/redian.css">
+        <div id="guess">
+            <section id="maincontent">
+                <h2></h2>
+                {% if result|length > 0 %}
+                    {% for item in result %}
+                        <div class="container">
+
+                            <a href="{{ item.url }}">
+                                <p>{{ item.title }}</p>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>没有新闻</p>
+                {% endif %}
+
+
+                <div class="separator line">
+                    <div></div>
+                </div>
+
+                <div class="clear"></div>
+            </section>
+        </div>
+        <!-- END FOOTER SIDEBAR -->
+
+
+        <!-- FOOTER SIDEBAR -->
+        <div id="outerfootersidebar">
+            <div id="footersidebarcontainer">
+                <footer id="footersidebar">
+
+                    <div id="footcol1" class="footcol">
+                        <ul>
+                            <li class="widget-container">
+                                <h2 class="widget-title">品牌实力</h2>
+                                <div class="textwidget">
+                                    <p>发觉更多潜在客户，提升站点用户访问量，更多挖掘潜在客户，促成合作和消费。</p>
+                                    <span>节约网络营销费用，提升企业ROI
+网站排名自然靠前，增加网站浏览量，促进网站宣传和业务发展。</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="footcol2" class="footcol">
+                        <ul>
+                            <li class="widget-container">
+                                <h2 class="widget-title">走进我们</h2>
+                                <ul>
+                                    <li><a href="/about">关于我们</a></li>
+                                    <li><a href="/portfolio">最新作品</a></li>
+                                    <li><a href="/service">服务内容</a></li>
+                                    <li><a href="contact.html">联系方式</a></li>
+                                    <li><a href="#">官方博客</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="footcol3" class="footcol">
+                        <ul>
+                            <li class="widget-container">
+                                <h2 class="widget-title">相关信息</h2>
+                                <ul>
+                                    <li><a href="#">上海交通大学</a></li>
+                                    <li><a href="#">EE208</a></li>
+                                    <li><a href="#">电类工程导论C类大作业</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="footcol4" class="footcol">
+                        <ul>
+                            <li class="widget-container">
+                                <h2 class="widget-title">联系方式</h2>
+                                <p>山东省济南市二环东路<br/>
+                                    Telp: +800 123 456<br/>
+                                    <br/>
+                                </p>
+                                <div id="sn">
+                                    </p>
+                                    <div id="sn">
+                                        <ul>
+                                            <li><a><span class="icon-img"
+                                                         style="background:url(static/images/social/facebook.png)"></span></a>
+                                            </li>
+                                            <li><a><span class="icon-img"
+                                                         style="background:url(static/images/social/twitter.png)"></span></a>
+                                            </li>
+                                            <li><a><span class="icon-img"
+                                                         style="background:url(static/images/social/linkedin.png)"></span></a>
+                                            </li>
+                                            <li><a><span class="icon-img"
+                                                         style="background:url(static/images/social/youtube.png)"></span></a>
+                                            </li>
+                                            <li><a><span class="icon-img"
+                                                         style="background:url(static/images/social/flickr.png)"></span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+
+                </footer>
+            </div>
+        </div>
+        <!-- END FOOTER SIDEBAR -->
+
+        <!-- FOOTER -->
+        <div id="outerfooter">
+            <div id="footercontainer">
+            </div>
+        </div>
+        <!-- END FOOTER -->
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

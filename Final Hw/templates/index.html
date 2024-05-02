@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <link rel="shortcut icon" href="static/images/favicon.ico" />
+    <meta charset="utf-8" />
+    <title>主页</title>
+    <link href="static/styles/reset.css" type="text/css" rel="stylesheet" />
+    <link href="static/styles/style.css" type="text/css" rel="stylesheet" />
+    <link href="static/styles/inner.css" type="text/css" rel="stylesheet" />
+    <link href="static/styles/prettyPhoto.css" rel="stylesheet" type="text/css" media="screen" title="prettyPhoto" />
+    <!--[if IE]> <script src="js/html5.js"></script>
+<![endif]-->
+    <!-- ////////////////////////////////// -->
+    <!-- //      Javascript Files        // -->
+    <!-- ////////////////////////////////// -->
+    <script type="text/javascript" src="static/js/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="static/js/hoverIntent.js"></script>
+    <script type="text/javascript" src="static/js/superfish.js"></script>
+    <script type="text/javascript" src="static/js/supersubs.js"></script>
+    <script type="text/javascript" src="static/js/jquery.cycle.all.js"></script>
+    <script type="text/javascript" src="static/js/fade.js"></script>
+    <script type="text/javascript" src="static/js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //=================================== MAIN MENU ===================================//
+            jQuery("ul.sf-menu").supersubs({
+                minWidth: 12,		// requires em unit.
+                maxWidth: 14,		// requires em unit.
+                extraWidth: 3	// extra width can ensure lines don't sometimes turn over due to slight browser differences in how they round-off values
+                // due to slight rounding differences and font-family 
+            }).superfish();  // call supersubs first, then superfish, so that subs are 
+            // not display:none when measuring. Call before initialising 
+            // containing tabs for same reason.
+
+            //=================================== SLIDESHOW ===================================//
+            jQuery('#slideshow').cycle({
+                timeout: 5000,  // milliseconds between slide transitions (0 to disable auto advance)
+                fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...     
+                pager: '#slidernav',  // selector for element to use as pager container
+                pause: 0,	  // true to enable "pause on hover"
+                cleartype: !$.support.opacity,  // true if clearType corrections should be applied (for IE)
+                cleartypeNoBg: true, // set to true to disable extra cleartype fixing (leave false to force background color setting on slides)  
+                pauseOnPagerHover: 0 // true to pause when hovering over pager link
+            });
+
+
+            //=================================== PRETTYPHOTO ===================================//
+            jQuery('a[data-rel]').each(function () { jQuery(this).attr('rel', jQuery(this).data('rel')); });
+            jQuery("a[rel^='prettyPhoto']").prettyPhoto({ animationSpeed: 'slow', theme: 'facebook', slideshow: 2000 });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="bodychild">
+        <div id="outercontainer">
+
+            <!-- HEADER -->
+            <div id="outerheader">
+                <header id="top">
+                    <div id="logo"><a href="index.html"><img src="static/images/logo.png" alt=""></a></div>
+                    <section id="navigation">
+                        <nav>
+                            <ul id="topnav" class="sf-menu">
+                                <li class="current"><a href="index.html">主页</a></li>
+                                <li><a href="/about">财经新闻</a></li>
+                                <li><a href="/service">体育新闻</a></li>
+                                <li><a href="/portfolio">以图搜图</a></li>
+                                <li><a href="/game">学累了？玩一会吧！</a></li>
+                            </ul><!-- topnav -->
+                        </nav><!-- nav -->
+                        <div class="clear"></div>
+                    </section>
+                    <div class="clear"></div>
+                </header>
+            </div>
+            <!-- END HEADER -->
+
+
+            <!-- SLIDER -->
+            <div id="outerslider">
+                <div id="slidercontainer">
+                    <div id="bgslider"></div>
+                    <section id="slider">
+                        <ul id="slideshow">
+                            <li>
+                                <div class="slide-img"><img src="static/images/content/slide1.jpg" alt=""></div>
+                                <div class="slide-text">
+                                    <hgroup>
+                                        <h1>欢迎来到 <span class="colortext">Search网站</span> </h1>
+                                        <h4>国内外最新的金融体育新闻</h4>
+                                    </hgroup>
+                                    <p>欢迎使用</p>
+                                    <a href="#" class="buttoncolor"><span class="buttontext">了解更多</span><span
+                                            class="buttonsep"></span></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slide-img"><img src="static/images/content/slide2.jpg" alt=""></div>
+                                <div class="slide-text">
+                                    <hgroup>
+                                        <h1>不局限于传统的 <span class="colortext">搜索方式</span></h1>
+
+                                    </hgroup>
+                                    <p>通过以图搜图实现搜索能力</p>
+                                    <a href="#" class="buttoncolor"><span class="buttontext">了解更多</span><span
+                                            class="buttonsep"></span></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slide-img"><img src="static/images/content/slide3.jpg" alt=""></div>
+                                <div class="slide-text">
+                                    <h1>在这里<br />你甚至可以 <span class="colortext"> </span></h1>
+                                    <p>玩游戏！</p>
+                                    <a href="#" class="buttoncolor"><span class="buttontext">了解更多</span><span
+                                            class="buttonsep"></span></a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div id="slidernav"></div>
+                    </section>
+                </div>
+            </div>
+            <!-- END SLIDER -->
+            <div class="copyrights">Collect from <a href="http://www.cssmoban.com/">Website Template</a></div>
+            <!-- BEFORE CONTENT -->
+            <div id="outerbeforecontent">
+                <div id="beforecontent">
+                    <section id="beforethecontent">
+                        <article id="beforethecontent-colleft">
+                            <h2>关于我们</h2>
+                            
+                            <p>这个网页旨在搭建一个搜索引擎，可以爬取网络上的体育和财经新闻，并可以按照使用者的喜好进行一定的搜索功能，满足词搜图、图搜图、按照时间和相关性排序，同时做到自动聚类。
+                            </p>
+                        </article>
+                        <article id="beforethecontent-colright">
+                            <div class="quote">
+                                <p><strong>选择交大 </strong></p>
+                                <p><strong>就是选择了责任 </strong></p>
+
+                                <span class="qname colortext"><!--~ BlueSEO--></span>
+                            </div>
+                        </article>
+                        <div class="clear"></div>
+                    </section>
+                </div>
+            </div>
+            <!-- END BEFORE CONTENT -->
+
+            <!-- MAIN CONTENT -->
+            <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="static/styles/zhuye.css">
+            <div id="zhuye">
+                <section id="maincontent">
+
+                        <div class="right">
+                            <h2>热搜榜</h2>
+                            <ul>
+                                <li><a href="https://baijiahao.baidu.com/s?id=1787663989738004450&wfr=spider&for=pc"><p>⬆一体推进“三不腐” 总书记开年再部署</p></a></li>
+                                <li><a href="https://baijiahao.baidu.com/s?id=1787778614028204504"><p>1.对话淄博文旅局副局长：不可能永远站在流量顶峰，对比哈尔滨仍有差距</p></a></li>
+                                <li><a href="https://baijiahao.baidu.com/s?id=1787764295480751990"><p>2.冰雪同梦，亚洲同心！2025年第九届亚冬会主题口号正式发布</p></a></li>
+                                <li><a href="https://www.cqcb.com/tiyu/2024-01-11/5478771_pc.html"><p>3.三年1.524亿美元!莱昂纳德与快船提前续约</p></a></li>
+                                <li><a href="https://baijiahao.baidu.com/s?id=1787778391909750699"><p>4.普京：俄罗斯已成欧洲第一大经济体 去年经济增速或超3.5%</p></a></li>
+                                <li><a href="https://baijiahao.baidu.com/s?id=1787778281477117732&wfr=spider&for=pc"><p>5.第25个GDP万亿城市来了</p></a></li>
+                                <li><a href="https://sports.sina.com.cn/g/pl/2024-01-11/doc-inacccqh3460482.shtml"><p>6.英联杯-加克波琼斯破门 利物浦2-1富勒姆占先机</p></a></li>
+                                <li><a href="https://sports.sina.com.cn/china/2024-01-11/doc-inacciwf6303431.shtml"><p>7.李铁案破坏性空前绝后:砸了国足招牌 土帅将更难</p></a></li>
+                                <li><a href="https://baijiahao.baidu.com/s?id=1787704292073672388&wfr=spider&for=pc"><p>8.A股全面牛市不太现实，紧扣这个主线</p></a></li>
+                                <li><a href="https://baijiahao.baidu.com/s?id=1787758585781054089&wfr=spider&for=pc"><p>9.曼城队长妻子宣布分居 私生活混乱还屡教不改</p></a></li>
+                                <li><a href="https://baijiahao.baidu.com/s?id=1787755962699777504&wfr=spider&for=pc"><p>10.马来西亚公开赛次日国羽9胜4负 李诗沣陈雨菲晋级</p></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+
+                    
+                    <div class="separator line"><div></div></div>
+                    
+                    <div class="clear"></div>
+                </section>
+            </div>
+            <!-- END MAIN CONTENT -->
+
+
+            <!-- FOOTER SIDEBAR -->
+            <div id="outerfootersidebar"> </div>
+            <!-- END FOOTER SIDEBAR -->
+
+            <!-- FOOTER -->
+            <div id="outerfooter">
+                <div id="footercontainer">
+                    <footer id="footer">Copyright &copy; 2014. All Rights NOT Reserved </footer>
+                </div>
+            </div>
+            <!-- END FOOTER -->
+
+<
+        </div>
+    </div>
+
+
+    <style>
+        .copyrights {
+            text-indent: -9999px;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            overflow: hidden;
+        }
+    </style>
+    <div class="copyrights">
+        Collect from <a href="http://www.cssmoban.com/" title="网站模板">模板之家</a>
+        <a href="https://www.chazidian.com/" title="查字典">查字典</a>
+    </div>
+</body>
+
+</html>
